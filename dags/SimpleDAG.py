@@ -19,3 +19,12 @@ with dag:
         python_callable=run_this_func,
         provide_context=True
     )
+
+    run_this_task2 = PythonOperator(
+        task_id='run_this2',
+        python_callable=run_this_func,
+        provide_context=True
+    )
+
+    # To order them to run sequentially, do this
+    run_this_task >> run_this_task2
