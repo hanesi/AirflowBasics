@@ -4,7 +4,7 @@ from airflow.operators.python_operator import PythonOperator
 
 args = {
     "owner": "ian",
-    "startDate": days_ago(1)
+    "start_date": days_ago(1)
 }
 dag = DAG(dag_id="SimpleDAG", default_args=args, schedule_interval=None)
 
