@@ -67,6 +67,7 @@ def parser(**kwargs):
             try:
                 test = json.loads(i.text)
                 address_info = test[0]['location']['address']
+                print(address_info)
                 if address_info['addressLocality'] == 'Brooklyn' or address_info['addressLocality'] == 'New York (NYC)':
                     date = datetime.datetime.strptime(
                         test[0]['endDate'], "%Y-%m-%d")
