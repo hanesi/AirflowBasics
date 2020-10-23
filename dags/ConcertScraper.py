@@ -64,6 +64,7 @@ def parser(**kwargs):
 
         allTourDates = soup.findAll('script', type="application/ld+json")
         for i in allTourDates:
+            print(i)
             try:
                 test = json.loads(i.text)
                 address_info = test[0]['location']['address']
@@ -82,7 +83,9 @@ def parser(**kwargs):
                         msg = f"{band} is playing at {venue} on {date}"
                         print(msg)
                         msgSet.add(msg)
-            except:
+            except Exception as e:
+                print("didn't work:")
+                print(e)
                 pass
     return msgSet
 
