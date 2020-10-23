@@ -2,9 +2,7 @@ version: '3.7'
 services:
     master:
       image: gettyimages/spark
-      command: >
-        sh -c "bin/spark-class org.apache.spark.deploy.master.Master -h master
-        && export PYSPARK_SUBMIT_ARGS="--master local[2] pyspark-shell""
+      command: bin/spark-class org.apache.spark.deploy.master.Master -h master
       hostname: master
       environment:
         MASTER: spark://master:7077
