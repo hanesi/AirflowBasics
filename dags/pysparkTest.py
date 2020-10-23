@@ -15,8 +15,9 @@ dag = DAG(dag_id="pysparkTest", default_args=args, schedule_interval=None)
 
 
 def run_this_func(**context):
-    sc = pyspark.SparkContext()
+    sc = pyspark.SparkContext("spark://master:7077")
     print(sc)
+
 
 with dag:
     run_this_task = PythonOperator(
